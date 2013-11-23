@@ -11,21 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121162029) do
+ActiveRecord::Schema.define(version: 20131121172054) do
+
+  create_table "lists", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.boolean  "shared"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "utilizadors", force: true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
