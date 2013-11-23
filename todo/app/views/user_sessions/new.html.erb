@@ -1,5 +1,5 @@
-<h2> Welcome to ToDo!!! </h2>
-<h3> Login </h3>
+<h1>Login</h1>
+
 <%= form_tag user_sessions_path, method: :post do %>
   <div class="field">
     <%= label_tag :username %>
@@ -15,5 +15,3 @@
     <%= submit_tag "Login" %>
   </div>
 <% end %>
-<h4> If you don't have an account, register here.</h4>
-<%= link_to 'New User', new_user_path %>

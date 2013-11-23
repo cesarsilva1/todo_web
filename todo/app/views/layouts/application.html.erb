@@ -5,6 +5,19 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <div align="right">
+      <h4>
+        <% if logged_in? %>
+          <%= "Logged in as #{current_user.username}" %>
+          <br>
+          <%= link_to "(seetings)", edit_user_path(current_user.id) %>
+          <%= link_to "(logout)", logout_path %>
+        <% else %>
+        	<%= link_to "Login", login_path %>
+        <% end %>
+        <hr>
+      </h4>
+  </div>
 </head>
 <body>
 

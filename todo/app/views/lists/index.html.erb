@@ -1,9 +1,20 @@
-<h1>All Lists</h1>
-
+<h3>Your ToDo's</h3>
 <ul>
   <% @lists.each do |list| %>
-    <li>
+      <% if (list.shared == false) %>
+      <li>
       	<%= link_to list.name, list_path(list) %>
     </li>
+    <%end%>
+  <% end %>
+</ul>
+<h3> Shared ToDo's</h3>
+<ul>
+	<% @lists.each do |list| %>
+      <% if (list.shared == true) %>
+      <li>
+      	<%= link_to list.name, list_path(list) %>
+      </li>
+      <%end%>
   <% end %>
 </ul>
