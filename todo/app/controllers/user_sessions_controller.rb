@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
     if login(params[:username], params[:password])
       redirect_back_or_to(lists_path, message: 'Logged in successfully.')
     else
-      flash.now.alert = "Login failed."
+      flash.notice = "Login failed. Username or password incorrect."
       render action: :new
     end
   end
