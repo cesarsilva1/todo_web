@@ -1,4 +1,4 @@
-<div align="left">
+<div align="left" style="width:200px;float:left">
 <h3>Your ToDo's</h3>
 <ul>
   <% @lists.each do |list| %>
@@ -21,7 +21,7 @@
       <%end%>
   <% end %>
 </ul>
-<h4>
+<h4 style="position:absolute;bottom:0px">
 <%= link_to "New ToDo list...", new_list_path%>
 </h4>
 </div>

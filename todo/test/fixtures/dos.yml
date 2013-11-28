@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  completed: false
+  priority: 
+  details: MyString
+  map: MyString
+  date: 2013-11-28 16:28:23
+  list_id: 
+
+two:
+  completed: false
+  priority: 
+  details: MyString
+  map: MyString
+  date: 2013-11-28 16:28:23
+  list_id: 

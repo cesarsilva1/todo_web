@@ -3,10 +3,10 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if login(params[:username], params[:password])
+    if login(params[:email], params[:password])
       redirect_back_or_to(lists_path, message: 'Logged in successfully.')
     else
-      flash.notice = "Login failed. Username or password incorrect."
+      flash.notice = "Login failed. Email or password incorrect."
       render action: :new
     end
   end

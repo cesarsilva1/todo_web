@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121172054) do
+ActiveRecord::Schema.define(version: 20131128162823) do
+
+  create_table "dos", force: true do |t|
+    t.boolean  "completed"
+    t.integer  "priority"
+    t.string   "details"
+    t.string   "map"
+    t.datetime "date"
+    t.integer  "list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dos", ["list_id"], name: "index_dos_on_list_id", using: :btree
 
   create_table "lists", force: true do |t|
     t.string   "name"

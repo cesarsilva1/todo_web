@@ -2,6 +2,15 @@ class ListsController < ApplicationController
 	include ListsHelper
 
 	before_filter :require_login
+	before_action :list_owner, only: [:show,:edit,:update,:destroy]
+
+	def list_owner
+		@user = current_user.id
+		@list = List.find(params[:id])
+		if(@user!=@list.user_id)
+			redirect_to lists_path
+		end
+	end
 
 	def index
 		@user = current_user

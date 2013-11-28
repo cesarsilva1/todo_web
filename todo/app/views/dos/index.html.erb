@@ -1,0 +1,14 @@
+<div align="right" style="float:right">
+<h3>Your ToDo's</h3>
+<ul>
+  <% @dos.each do |dox| %>
+       <li>
+      	<%= dox.completed dox.priority dox.details%>
+    </li>
+    <%end%>
+  <% end %>
+</ul>
+<h4 style="position:absolute;bottom:0px;float:right">
+<%= link_to "New ToDo...", new_do_path%>
+</h4>
+</div>
