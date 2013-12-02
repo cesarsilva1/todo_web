@@ -1,0 +1,31 @@
+<%= form_for(@do, html: {multipart: true}) do |f| %>
+  <ul>
+  <% @do.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.text_field :completed %>
+  </p>
+  <p>
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.label :details %><br />
+    <%= f.text_field :details %>
+  </p>
+  <p>
+    <%= f.label :map %><br />
+    <%= f.text_field :map %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>  
+    <%= f.submit %>
+    <%= link_to "Delete", dos_path(@do), method: :Delete, data: {confirm: "Do you want to delete the DO?"} %>
+  </p>
+<% end %>

@@ -18,7 +18,10 @@ class ListsController < ApplicationController
 	end
 
 	def show
-		@list = List.find(params[:id]) 
+		@user = current_user
+		@lists = @user.lists
+		@list = List.find(params[:id])
+		@dos = @list.dos 
 	end
 
 	def edit

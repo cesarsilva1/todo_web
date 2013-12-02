@@ -1,14 +1,31 @@
-<div align="right" style="float:right">
-<h3>Your ToDo's</h3>
-<ul>
-  <% @dos.each do |dox| %>
-       <li>
-      	<%= dox.completed dox.priority dox.details%>
-    </li>
-    <%end%>
-  <% end %>
-</ul>
-<h4 style="position:absolute;bottom:0px;float:right">
-<%= link_to "New ToDo...", new_do_path%>
-</h4>
-</div>
+<h1>Listing dos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>completed</th>
+      <th>priority</th>
+      <th>details</th>
+      <th>map</th>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dos.each do |dox| %>
+      <tr>
+        <td><%= dox.completed %></td>
+        <td><%= dox.priority %></td>
+        <td><%= dox.details %></td>
+        <td><%= dox.map %></td>
+        <td><%= dox.date %></td>
+        <td><%= link_to 'Show', dox %></td>
+        <td><%= link_to 'Edit', edit_do_path(dox) %></td>
+        <td><%= link_to 'Destroy', dox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
