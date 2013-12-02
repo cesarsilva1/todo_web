@@ -21,7 +21,7 @@ class ListsController < ApplicationController
 		@user = current_user
 		@lists = @user.lists
 		@list = List.find(params[:id])
-		@dos = @list.dos 
+		@dos = @list.dos
 	end
 
 	def edit

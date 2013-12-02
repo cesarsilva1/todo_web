@@ -1,0 +1,30 @@
+<div align="left" style="float:center">
+<h2><%=@list.name%></h2>
+<ul>
+  <% @dos.each do |dox| %>
+    <table>
+    	<thead>
+    		<th></th>
+      		<th></th>
+	      	<th></th>
+	      	<th></th>
+	      	<th></th>
+	      	<th></th>
+	    </thead>
+	    <tbody>
+	    	<td><%=dox.completed%></td>
+      	<td><%=dox.priority%></td>
+      	<td><%=dox.details%></td>
+      	<td><%=dox.map%></td>
+      	<td><%=dox.date%></td>
+      	<td><%= link_to 'Edit', edit_do_path(dox) %></td>
+      </tbody>
+    </table>
+  <%end%>
+</ul>
+
+<h4 align="right" style="bottom:0px">
+<%= link_to "New ToDo...", new_do_path(:list_id => @list.id)%>
+</h4>
+
+</div>
