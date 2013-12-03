@@ -12,8 +12,13 @@
     <%= f.label :color %><br />
     <%= f.text_field :color %>
   </p>
-    <%= f.label :shared %><br />
-    <%= f.text_field :shared %>
+  <p>
+    <%= f.label(:shared) %><br />
+    <%= f.label(:shared_n,"No")%>
+    <%= f.label(:Shared_y,"Yes") %><br/>
+    <%= f.radio_button(:shared, "false")%>
+    <%= f.radio_button(:shared, "true")%>
+  </p>
   <p>
     <%= f.submit %>
     <%= link_to "Delete", list_path(@list), method: :Delete, data: {confirm: "Do you want to delete the list?"} %>

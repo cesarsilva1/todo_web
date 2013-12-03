@@ -23,7 +23,12 @@
         </td>
       	<td><%=dox.priority%></td>
       	<td><%=dox.details%></td>
-      	<td><%=dox.map%></td>
+      	<td>
+          <% if(dox.map)%>
+            <a href=<%=dox.map%>>
+            <img src="/map_icon.png" alt="Map" width="30" height="30"></a>
+          <%end%>
+        </td>
       	<td><%=dox.date%></td>
       	<td><%= link_to 'Edit', edit_do_path(dox) %></td>
       </tbody>
