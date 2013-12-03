@@ -9,8 +9,13 @@
     <%= f.text_field :completed %>
   </p>
   <p>
-    <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
+    <%= f.label(:priority) %><br/>
+    <%= f.label(:priority_low,"Low") %>
+    <%= f.label(:priority_medium,"Medium")%>
+    <%= f.label(:priority_high,"High") %><br/>
+    <%= f.radio_button(:priority, "1")%>
+    <%= f.radio_button(:priority, "2")%>
+    <%= f.radio_button(:priority, "3")%><br/>
   </p>
   <p>
     <%= f.label :details %><br />
