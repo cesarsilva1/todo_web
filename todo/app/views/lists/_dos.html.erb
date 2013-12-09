@@ -13,7 +13,7 @@
 	      	<th></th>
 	    </thead>
 	    <tbody>
-	    	<td>
+	    	<td width="5%">
           <form>
             <%if dox.completed==false%>
               <input type="checkbox">
@@ -22,16 +22,26 @@
             <%end%>
           <form>
         </td>
-      	<td><%=dox.priority%></td>
-      	<td><%=dox.details%></td>
-      	<td>
+      	<td width="5%">
+          <%if (dox.priority==1)%>
+                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#0dff00;"</canvas>
+          <%end%>
+          <%if (dox.priority==2)%>
+                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#f7ff00;"</canvas>
+          <%end%>
+          <%if (dox.priority==3)%>
+                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#ff0000;"</canvas>
+          <%end%>
+        </td>
+      	<td width="75%"><%= dox.details%></td>
+      	<td width="5%">
           <% if(dox.map!="")%>
             <a href=<%=dox.map%>>
             <img src="/map_icon.png" alt="Map" width="30" height="30"></a>
           <%end%>
         </td>
-      	<td><%=dox.date%></td>
-      	<td><%= link_to 'Edit', edit_do_path(dox) %></td>
+      	<td width="5%"><%=dox.date%></td>
+      	<td width="5%"><%= link_to 'Edit', edit_do_path(dox) %></td>
       </tbody>
     </table>
   <%end%>
