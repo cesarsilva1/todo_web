@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128162823) do
+ActiveRecord::Schema.define(version: 20131209153044) do
 
   create_table "dos", force: true do |t|
     t.boolean  "completed"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20131128162823) do
   end
 
   add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
+
+  create_table "sharings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sharings", ["list_id"], name: "index_sharings_on_list_id", using: :btree
+  add_index "sharings", ["user_id"], name: "index_sharings_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false

@@ -1,5 +1,6 @@
-<div align="left" style="float:center">
-<h2><%=@list.name%></h2>
+<div class="panel panel-default" style="float:right;width:85%;height:100%;">
+<div class="panel-heading"><strong><%=@list.name%></strong></div>
+  <div class="panel-body">
 <ul>
   <% @dos.each do |dox| %>
     <table>
@@ -35,7 +36,7 @@
     </table>
   <%end%>
 </ul>
-
+</div>
 <h4 align="right" style="bottom:0px">
 <%= link_to "New ToDo...", :controller =>"dos", :action=>"new", :list_id=>@list.id %>
 </h4>

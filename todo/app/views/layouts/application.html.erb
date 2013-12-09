@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>ToDo</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <div align="right">
-      <h4>
-        <% if logged_in? %>
-          <%= "#{current_user.username}" %>
-          <br>
-          <%= link_to "(settings)", edit_user_path(current_user.id) %>
-          <%= link_to "(sign out)", logout_path %>
-        <% else %>
-        	<%= link_to "Sign in", login_path %>
-        <% end %>
-        <hr>
-      </h4>
-  </div>
 </head>
 <body>
-<p class="flash"><%= flash.notice %></p>
-<%= yield %>
+  <nav class="navbar navbar-default">
 
+    <div class="navbar-header">
+    <h1><strong>ToDo</strong> <small><i>...and do it!</i></small></h1>
+    </div>
+
+    <div style="float:right">
+        <% if logged_in? %>
+          <h4><strong>Hello <%="#{current_user.username}"%>!</strong></h4>
+          <h6><%= link_to "(settings)", edit_user_path(current_user.id) %>
+          <%= link_to "(sign out)", logout_path %></h6>
+        <% else %>
+          <h4><%= link_to "Sign in", login_path %></h4>
+        <% end %>
+    </div>
+  </nav>
+<p class="flash"><%= flash.notice %></p>
+<div>
+<%= yield %>
+</div>
 </body>
 </html>
