@@ -24,20 +24,20 @@
         </td>
       	<td width="5%">
           <%if (dox.priority==1)%>
-                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#0dff00;"</canvas>
+                <canvas style="height:18px;width:18px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#0dff00;"</canvas>
           <%end%>
           <%if (dox.priority==2)%>
-                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#f7ff00;"</canvas>
+                <canvas style="height:18px;width:18px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#f7ff00;"</canvas>
           <%end%>
           <%if (dox.priority==3)%>
-                <canvas style="height:20px;width:20px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#ff0000;"</canvas>
+                <canvas style="height:18px;width:18px;border:0px;border-radius:100%;vertical-align:text-top;background-color:#ff0000;"</canvas>
           <%end%>
         </td>
       	<td width="65%"><%= dox.details%></td>
       	<td width="5%">
           <% if(dox.map!="")%>
-            <a href=<%=dox.map%>>
-            <img src="/map_icon.png" alt="Map" width="30" height="30"></a>
+            <a class="fancybox" href=<%=dox.map%>>
+            <img src="/map_icon.png" alt="Map" width="30" height="30"/></a>
           <%end%>
         </td>
       	<td width="10%"><%=dox.date%></td>
