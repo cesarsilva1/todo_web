@@ -1,17 +1,23 @@
+<div align="center">
+<div class="input-group">
 <h1>Sign in</h1>
 
 <%= form_tag user_sessions_path, method: :post do %>
-  <div class="field">
+  <div align="left" class="input">
     <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= text_field_tag :email,nil ,:class=>"form-control", :placeholder=>"Email"%>
     <br/>
   </div>
-  <div class="field">
+  <div align="left" class="input">
     <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password,nil ,:class=>"form-control", :placeholder=>"Password" %>
     <br/>
   </div>
+  <br/>
   <div class="actions">
     <%= submit_tag "Sign in" %>
+    <h4 align="center"> If you don't have an account, sign up <%= link_to 'here', new_user_path %></h4>
   </div>
 <% end %>
+</div>
+</div>

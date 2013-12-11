@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209153044) do
+ActiveRecord::Schema.define(version: 20131211105757) do
 
   create_table "dos", force: true do |t|
     t.boolean  "completed"
     t.integer  "priority"
     t.string   "details"
     t.string   "map"
-    t.datetime "date"
+    t.date     "date"
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"

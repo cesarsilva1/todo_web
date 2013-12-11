@@ -5,7 +5,7 @@ class CreateDos < ActiveRecord::Migration
       t.integer :priority
       t.string :details
       t.string :map
-      t.datetime :date
+      t.date :datetime
       t.references :list, index: true
 
       t.timestamps

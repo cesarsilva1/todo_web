@@ -27,10 +27,10 @@
   </p>
   <p>
     <%= f.label :date %><br />
-    <%= f.text_field :date %>
+    <%= f.date_field :date %>
   </p>
   <p>  
     <%= f.submit %>
-    <%= link_to "Delete", dos_path(@do), method: :Delete, data: {confirm: "Do you want to delete the DO?"} %>
+    <%= link_to "Delete", do_path(@do), method: :Delete, data: {confirm: "Do you want to delete the DO?"} %>
   </p>
 <% end %>
