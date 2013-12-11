@@ -4,23 +4,27 @@
     <li><%= error %></li>
   <% end %>
   </ul>
-  <p>
+<div align="center">
+<div class="input-group">
+  <div align="left" class="input">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
+    <%= f.text_field :name , :class=>"form-control", :placeholder=>"Name"%>
+  </div>
+  <div align="left" class="input">
     <%= f.label :color %><br />
     <%= f.color_field :color %>
-  </p>
-  <p>
+  </div>
+  <div align="left" class="input">
     <%= f.label(:shared) %><br />
     <%= f.label(:shared_n,"No")%>
     <%= f.label(:shared_y,"Yes") %><br/>
     <%= f.radio_button(:shared, "false")%>
     <%= f.radio_button(:shared, "true")%>
-  </p>
+  <div>
   <p>
     <%= f.submit %>
     <%= link_to "Delete", list_path(@list), method: :Delete, data: {confirm: "Do you want to delete the list?"} %>
   </p>
+</div>
+</div>
 <% end %>

@@ -4,11 +4,16 @@
     <li><%= error %></li>
   <% end %>
   </ul>
-  <p>
+<div align="center">
+<div class="input-group">
+  <div align="left" class="input">
     <%= f.label :completed %><br />
-    <%= f.text_field :completed %>
-  </p>
-  <p>
+    <%= f.label(:completed_yes,"Yes") %>
+    <%= f.label(:completed_no,"No")%><br />
+    <%= f.radio_button(:completed, "1")%>
+    <%= f.radio_button(:completed, "0")%><br />
+  </div>
+  <div align="left" class="input">
     <%= f.label(:priority) %><br/>
     <%= f.label(:priority_low,"Low") %>
     <%= f.label(:priority_medium,"Medium")%>
@@ -16,22 +21,24 @@
     <%= f.radio_button(:priority, "1")%>
     <%= f.radio_button(:priority, "2")%>
     <%= f.radio_button(:priority, "3")%><br/>
-  </p>
-  <p>
+  </div>
+  <div align="left" class="input">
     <%= f.label :details %><br />
-    <%= f.text_field :details %>
-  </p>
-  <p>
+    <%= f.text_field :details, :class=>"form-control", :placeholder=>"Details" %>
+  </div>
+  <div align="left" class="input">
     <%= f.label :map %><br />
-    <%= f.text_field :map %>
-  </p>
-  <p>
+    <%= f.text_field :map, :class=>"form-control", :placeholder=>"Map"%>
+  </div>
+  <div align="left" class="input">
     <%= f.label :date %><br />
     <%= f.date_field :date %>
-  </p>
+  </div>
   <p>  
     <%= f.submit %>
     <%= link_to "Delete", do_path(@do), method: :Delete, data: {confirm: "Do you want to delete the DO?"} %>
   </p>
+</div>
+</div>
 <% end %>
 
