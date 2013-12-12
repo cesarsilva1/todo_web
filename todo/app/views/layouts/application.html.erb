@@ -7,6 +7,48 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!--GMaps -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+  </style>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxTV57fXZk4cmOoeyPOLO4787MXZXI1d0&sensor=true">
+  </script>
+  <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(0,0),
+          zoom: 1
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        google.maps.event.addListener(map, "click", function(event)
+            {
+                // place a marker
+                placeMarker(event.latLng);
+                var string;
+                string= event.latLng.lat()+","+event.latLng.lng();
+                document.getElementById("map").value = string;
+                // display the lat/lng in your form's lat/lng fields
+                //document.getElementById("latFld").value = event.latLng.lat();
+                //document.getElementById("lngFld").value = event.latLng.lng();
+            });
+
+        function placeMarker(location) {
+
+            var marker = new google.maps.Marker({
+                position: location, 
+                map: map
+            });
+        }
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -25,6 +67,7 @@
         <% end %>
     </div>
   </nav>
+
 
 <p align="center" style="background-color:#64A4D9;"><%= flash.notice %></p>
 <%= yield %>

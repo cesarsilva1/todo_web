@@ -16,6 +16,11 @@ class DosController < ApplicationController
 
 	def update
 		@do= Do.find(params[:id])
+		@cord = @do.map
+		if(!@cord["http"])
+			@url = "http://maps.googleapis.com/maps/api/staticmap?center="+@cord+"&size=640x640&scale=2&markers=color:blue%7Clabel:S%7C"+@cord+"&sensor=false"
+			params[:do][:map] = @url
+		end
 		@do.update(do_params)
 		flash.notice = "Do Updated!"
 		redirect_to list_path(@do.list_id)
@@ -28,6 +33,9 @@ class DosController < ApplicationController
 
 	def create 
 		@do = Do.new(do_params)
+		@cord = @do.map
+		@url = "http://maps.googleapis.com/maps/api/staticmap?center="+@cord+"&size=640x640&scale=2&markers=color:blue%7Clabel:S%7C"+@cord+"&sensor=false"
+		@do.map = @url
 		@do.list_id = flash[:list_id]
 		@do.save
 		flash.notice = "Do Created!"
