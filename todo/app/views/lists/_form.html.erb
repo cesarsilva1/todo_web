@@ -20,7 +20,11 @@
     <%= f.label(:shared_y,"Yes") %><br/>
     <%= f.radio_button(:shared, "false")%>
     <%= f.radio_button(:shared, "true")%>
+  </div>
   <div>
+    <p> If you want to share specify the users emails.</p>
+    <input name="userstoshare" type="text" class="form-control" placeholder="Separate users emails by commas.">
+  </div>
   <p>
     <%= f.submit %>
     <%= link_to "Delete", list_path(@list), method: :Delete, data: {confirm: "Do you want to delete the list?"} %>
