@@ -2,9 +2,9 @@ class ListsController < ApplicationController
 	include ListsHelper
 
 	before_filter :require_login
-	before_action :list_owner, only: [:show,:edit,:update,:destroy]
+	/before_action :list_owner, only: [:show,:edit,:update,:destroy]/
 
-	def list_owner
+	/def list_owner
 		@user = current_user.id
 		@list = List.find(params[:id])
 		if(!@list)
@@ -13,17 +13,27 @@ class ListsController < ApplicationController
 		if(@user!=@list.user_id)
 			redirect_to root_path
 		end
-	end
+	end/
 
 
 	def index
 		@user = current_user
 		@lists = @user.lists
+		@sharings = Sharing.where(user_id: @user.id)
+		@lists_shared = Array.new
+		@sharings.each do |s|
+			@lists_shared << List.find(s.list_id)
+		end
 	end
 
 	def show
 		@user = current_user
 		@lists = @user.lists
+		@sharings = Sharing.where(user_id: @user.id)
+		@lists_shared = Array.new
+		@sharings.each do |s|
+			@lists_shared << List.find(s.list_id)
+		end
 		@list = List.find(params[:id])
 		@dos = @list.dos
 	end
