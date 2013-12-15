@@ -4,14 +4,14 @@
 <ul>
   <% @dos.each do |dox| %>
     <table class="table table-striped">
-    	<thead>
+    	<!--<thead>
     		<th></th>
       		<th></th>
 	      	<th></th>
 	      	<th></th>
 	      	<th></th>
 	      	<th></th>
-	    </thead>
+	    </thead>-->
 	    <tbody>
 	    	<td width="5%">
           <form>
@@ -37,7 +37,7 @@
       	<td width="5%">
           <% if(dox.map!="")%>
             <a class="fancybox" href=<%=dox.map%>>
-            <img src="/map_icon.png" alt="Map" width="30" height="30"/></a>
+            <img src="/map_icon.png" title="Map" width="30" height="30"/></a>
           <%end%>
         </td>
       	<td width="10%"><%=dox.date%></td>
